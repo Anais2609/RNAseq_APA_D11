@@ -72,7 +72,6 @@ rule filter_fastp:
 		json = OUTPUTDIR + "/Samples/{sampleName}/FASTP/{sampleName}.json"
 	threads:5
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=10000
 	shell:
 		"""
@@ -88,7 +87,6 @@ rule align_reads:
 		OUTPUTDIR + "/Samples/{sampleName}/STAR/{sampleName}.Aligned.sortedByCoord.out.bam"
 	threads:30
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		parallel_star=1,
 		mem_mb=40000
 	shell:
@@ -116,7 +114,6 @@ rule index_bam:
 		OUTPUTDIR + "/Samples/{sampleName}/STAR/{sampleName}.Aligned.sortedByCoord.out.bam.bai"
 	threads:5
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=5000
 	shell:
 		"""
@@ -132,7 +129,6 @@ rule htseq_count:
 		OUTPUTDIR + "/Samples/{sampleName}/{sampleName}_count.txt"
 	threads:1
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=15000
 	shell:
 		"""
@@ -154,7 +150,6 @@ rule multiqc:
 		OUTPUTDIR + "/multiqc_report.html"
 	threads:1
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=15000
 	shell:
 		"""
@@ -169,7 +164,6 @@ rule import_count:
 		OUTPUTDIR + "/count_dir/{sampleName}.txt"
 	threads:1
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=5000
 	shell:
 		"""
@@ -198,7 +192,6 @@ rule kallisto:
 		OUTPUTDIR + "/Samples/{sampleName}/kallisto/abundance.tsv"
 	threads:5
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=15000
 	shell:
 		"""
@@ -214,7 +207,6 @@ rule kallisto_conditions:
 		tab = OUTPUTDIR + "/deseq2_kallisto/kallisto_conditions.tab"
 	threads:1
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=5000
 	run:
 		condArray = getConditions()
@@ -233,7 +225,6 @@ rule deseq2:
 		temp(OUTPUTDIR + "/RNAseq_APA_D11_expression_v0.gct")
 	threads:5
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=15000
 	shell:	
 		"""
@@ -250,7 +241,6 @@ rule deseq2_kallisto:
 		OUTPUTDIR + "/deseq2_kallisto/results_all/PCAplot_with_names.pdf"
 	threads:5
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=15000
 	shell:
 		"""
@@ -267,7 +257,6 @@ rule convert_gct_for_gsea:
 		nb_samples=len(sample_all)
 	threads:1
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=10000
 	shell:
 		"""
@@ -282,7 +271,6 @@ rule make_cls_for_gsea:
 		OUTPUTDIR + "/samples.cls"
 	threads:1
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=5000
 	shell:
 		"""
@@ -302,7 +290,6 @@ rule gsea:
 		temp(OUTPUTDIR + "/GSEA_outs/check_GSEA.txt")
 	threads:5
 	resources:
-		tmpdir=OUTPUTDIR_TMP,
 		mem_mb=15000
 	shell:
 		"""
