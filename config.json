@@ -1,0 +1,28 @@
+{
+    "replicates":{
+        "RH30_CTL_14h": {
+            "name":"RH30_CTL_14h",
+            "samples":["RH30_CTL_14h_rep1","RH30_CTL_14h_rep2","RH30_CTL_14h_rep3"]
+        },
+        "RH30_APA_14h": {
+            "name":"RH30_APA_14h",
+            "samples":["RH30_APA_14h_rep1","RH30_APA_14h_rep2","RH30_APA_14h_rep3"]
+        },
+        "RH30_D11_14h": {
+            "name":"RH30_D11_14h",
+            "samples":["RH30_D11_14h_rep1","RH30_D11_14h_rep2","RH30_D11_14h_rep3"]
+        },
+        "RH30_CTL_48h": {
+            "name":"RH30_CTL_48h",
+            "samples":["RH30_CTL_48h_rep1","RH30_CTL_48h_rep2","RH30_CTL_48h_rep3"]
+        },
+        "RH30_APA_48h": {
+            "name":"RH30_APA_48h",
+            "samples":["RH30_APA_48h_rep1","RH30_APA_48h_rep2","RH30_APA_48h_rep3"]
+        },
+        "RH30_D11_48h": {
+            "name":"RH30_D11_48h",
+            "samples":["RH30_D11_48h_rep1","RH30_D11_48h_rep2","RH30_D11_48h_rep3"]
+        }
+    }
+}
